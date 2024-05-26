@@ -1,62 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-05-17T00:48:00.210007" rpa="false" schemaversion="5">
-<suite id="s1" name="Test Pet" source="c:\Iterasys\PetStoreRobot140\__tests__\test_pet.robot">
-<test id="s1-t1" name="Delete pet" line="84">
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-05-26T00:26:05.211094" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Store" source="c:\Iterasys\PetStoreRobot140\__tests__\test_store.robot">
+<test id="s1-t1" name="Delete user" line="44">
 <kw name="DELETE" owner="RequestsLibrary">
-<msg time="2024-05-17T00:48:01.785273" level="INFO">DELETE Request : url=https://petstore.swagger.io/v2/pet/173218101 
- path_url=/v2/pet/173218101 
+<msg time="2024-05-26T00:26:06.836013" level="INFO">DELETE Request : url=https://petstore.swagger.io/v2/store/order/2 
+ path_url=/v2/store/order/2 
  headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
  body=None 
  </msg>
-<msg time="2024-05-17T00:48:01.788271" level="INFO">DELETE Response : url=https://petstore.swagger.io/v2/pet/173218101 
+<msg time="2024-05-26T00:26:06.845420" level="INFO">DELETE Response : url=https://petstore.swagger.io/v2/store/order/2 
  status=200, reason=OK 
- headers={'Date': 'Fri, 17 May 2024 03:48:01 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
- body={"code":200,"type":"unknown","message":"173218101"} 
+ headers={'Date': 'Sun, 26 May 2024 03:26:06 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body={"code":200,"type":"unknown","message":"2"} 
  </msg>
-<msg time="2024-05-17T00:48:01.789267" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2024-05-26T00:26:06.845420" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>${{$url + '/' + $id}}</arg>
 <doc>Sends a DELETE request.</doc>
-<status status="PASS" start="2024-05-17T00:48:00.480401" elapsed="1.308866"/>
+<status status="PASS" start="2024-05-26T00:26:05.373739" elapsed="1.471681"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-05-17T00:48:01.791258" level="INFO">${response_body} = {'code': 200, 'type': 'unknown', 'message': '173218101'}</msg>
+<msg time="2024-05-26T00:26:06.855023" level="INFO">${response_body} = {'code': 200, 'type': 'unknown', 'message': '2'}</msg>
 <var>${response_body}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-05-17T00:48:01.790263" elapsed="0.000995"/>
+<status status="PASS" start="2024-05-26T00:26:06.852427" elapsed="0.002596"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${response_body}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-05-17T00:48:01.792256" elapsed="0.000997"/>
+<status status="PASS" start="2024-05-26T00:26:06.857185" elapsed="0.000000"/>
 </kw>
 <kw name="Status Should Be" owner="RequestsLibrary">
 <arg>200</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" start="2024-05-17T00:48:01.794772" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-26T00:26:06.857185" elapsed="0.000000"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${response_body}[code]</arg>
 <arg>${{int(200)}}</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-05-17T00:48:01.795778" elapsed="0.000997"/>
+<status status="PASS" start="2024-05-26T00:26:06.857185" elapsed="0.004261"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${response_body}[type]</arg>
 <arg>unknown</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-05-17T00:48:01.797770" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-26T00:26:06.861446" elapsed="0.000000"/>
 </kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${response_body}[message]</arg>
-<arg>${id}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-05-17T00:48:01.798767" elapsed="0.000998"/>
-</kw>
-<status status="PASS" start="2024-05-17T00:48:00.479404" elapsed="1.321356"/>
+<status status="PASS" start="2024-05-26T00:26:05.373739" elapsed="1.487707"/>
 </test>
-<status status="PASS" start="2024-05-17T00:48:00.215489" elapsed="1.586269"/>
+<status status="PASS" start="2024-05-26T00:26:05.225022" elapsed="1.636424"/>
 </suite>
 <statistics>
 <total>
@@ -65,7 +59,7 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Test Pet">Test Pet</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test Store">Test Store</stat>
 </suite>
 </statistics>
 <errors>
